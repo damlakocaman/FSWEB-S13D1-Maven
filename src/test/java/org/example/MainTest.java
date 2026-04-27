@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(ResultAnalyzer.class)
 class MainTest {
 
-    @Test
+    @Test    
     public void testShouldWakeUp(){
         assertEquals(Main.shouldWakeUp(true, 1), true);
         assertEquals(Main.shouldWakeUp(false, 2), false);
