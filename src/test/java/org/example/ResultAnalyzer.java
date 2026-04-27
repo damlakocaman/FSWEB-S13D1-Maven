@@ -1,13 +1,13 @@
 package org.example;
 
-import org.apache.http.HttpResponse;
+
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.JSONObject;
 import org.junit.jupiter.api.extension.AfterAllCallback;
-import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
+
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 
@@ -58,7 +58,7 @@ public class ResultAnalyzer implements TestWatcher, AfterAllCallback {
         long failure = summary.get(TestResultStatus.FAILED) != null ? summary.get(TestResultStatus.FAILED) : 0;
 
         double score = (double) success / (success + failure);
-        String userId = "999999";
+        String userId = "191041";
 
         JSONObject json = new JSONObject();
         json.put("score", score);
@@ -75,7 +75,7 @@ public class ResultAnalyzer implements TestWatcher, AfterAllCallback {
             StringEntity params = new StringEntity(result);
             request.addHeader("content-type", "application/json");
             request.setEntity(params);
-            HttpResponse response = httpClient.execute(request);
+           
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
