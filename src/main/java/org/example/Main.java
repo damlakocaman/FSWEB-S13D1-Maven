@@ -9,6 +9,7 @@ public class Main {
         if (clock < 0 || clock > 23 ){
             return false;   
            
+
         }
 
         return isBarking && (clock < 8 || clock > 20);
