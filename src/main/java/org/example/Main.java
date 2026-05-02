@@ -10,11 +10,11 @@ public class Main {
             return false;   
            
 
-        }
+        }   
 
         return isBarking && (clock < 8 || clock > 20);
     }
-
+  
     public static boolean hasTeen(int firstAge, int secondAge, int thirdAge) {
        return (firstAge >= 13 && firstAge <= 19) ||
                (secondAge >= 13 && secondAge <= 19) ||

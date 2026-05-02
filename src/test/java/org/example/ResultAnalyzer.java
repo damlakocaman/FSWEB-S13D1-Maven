@@ -67,7 +67,7 @@ public class ResultAnalyzer implements TestWatcher, AfterAllCallback {
         json.put("userId", userId);    
         sendTestResult(json.toString());
     }
-
+  
     private void sendTestResult(String result) throws IOException {
         System.out.println("HERE");
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
