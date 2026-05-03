@@ -1,6 +1,6 @@
 package org.example;
 
-
+import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -67,7 +67,7 @@ public class ResultAnalyzer implements TestWatcher, AfterAllCallback {
         json.put("userId", userId);    
         sendTestResult(json.toString());
     }
-  
+   
     private void sendTestResult(String result) throws IOException {
         System.out.println("HERE");
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
@@ -76,7 +76,7 @@ public class ResultAnalyzer implements TestWatcher, AfterAllCallback {
             StringEntity params = new StringEntity(result);
             request.addHeader("content-type", "application/json");
             request.setEntity(params);
-           
+            HttpResponse response = httpClient.execute(request);
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
